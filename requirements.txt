@@ -1,4 +1,4 @@
 flask
 flask-cors
-torch
+torch==1.13.1
 laserembeddings==1.1.2
