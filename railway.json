@@ -3,7 +3,7 @@
     "env": {
       "PYTHONUNBUFFERED": "1"
     },
-    "buildCommand": "pip install -r requirements.txt && git clone https://github.com/facebookresearch/LASER.git && pip install ./LASER/python && python -m laserembeddings download-models",
+    "buildCommand": "curl -sSL https://install.python-poetry.org | python3 - && pip install torch==1.12.1 -f https://download.pytorch.org/whl/cpu/torch_stable.html && pip install -r requirements.txt && python -m laserembeddings download-models",
     "startCommand": "python app.py"
   }
 }
