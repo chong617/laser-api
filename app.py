@@ -5,8 +5,9 @@ from sentence_transformers import SentenceTransformer
 app = Flask(__name__)
 CORS(app)
 
-# 使用轻量模型，内存友好
-model = SentenceTransformer("all-MiniLM-L6-v2")
+
+model = SentenceTransformer("paraphrase-albert-small-v2")
+
 
 @app.route("/embed", methods=["POST"])
 def embed_text():
