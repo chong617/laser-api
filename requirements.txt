@@ -1,4 +1,4 @@
 flask
 flask-cors
 torch
-git+https://github.com/facebookresearch/LASER.git#egg=laserembeddings&subdirectory=python
+laserembeddings==1.1.2
