@@ -1,13 +1,11 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from sentence_transformers import SentenceTransformer
+from laserembeddings import Laser
 
 app = Flask(__name__)
 CORS(app)
 
-
-model = SentenceTransformer("paraphrase-albert-small-v2")
-
+laser = Laser()
 
 @app.route("/embed", methods=["POST"])
 def embed_text():
@@ -16,7 +14,8 @@ def embed_text():
     if not text:
         return jsonify({"error": "Text is empty"}), 400
     try:
-        embedding = model.encode([text])[0]
+        # laser.embed_sentences expects a list of sentences
+        embedding = laser.embed_sentences([text], lang='en')[0]
         return jsonify({"embedding": embedding.tolist()})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
