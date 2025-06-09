@@ -1,3 +1,4 @@
 flask
 flask-cors
-sentence-transformers
+torch
+git+https://github.com/facebookresearch/LASER.git#egg=laserembeddings&subdirectory=python
